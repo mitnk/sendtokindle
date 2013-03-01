@@ -169,6 +169,10 @@ MitnkSendToKindle.IO = {
     },
 
     init : function() {
-        installButton("nav-bar", "mitnk-sendtokindle-send-btn");
+        var currentset = document.getElementById("nav-bar").currentSet;
+        currentset=currentset + ",mitnk-sendtokindle-send-btn";
+        document.getElementById("nav-bar").setAttribute("currentset",currentset);
+        document.getElementById("nav-bar").currentSet = currentset;
+        document.persist("nav-bar","currentset");
     }
 };
