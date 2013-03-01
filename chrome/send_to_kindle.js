@@ -1,12 +1,24 @@
-var mitnk_send_to_kindle = {
+/**
+ * MitnkSendToKindle namespace.
+ */
+
+if (typeof MitnkSendToKindle == "undefined") {
+    var MitnkSendToKindle = {};
+};
+
+MitnkSendToKindle.IO = {
+    /**
+     * Send Blog Articles to Kindle.
+     * API provided by http://kindle.io
+     */
     get_or_create_main_div: function(doc, div_id) {
         var main_div = doc.getElementById(div_id);
         if (main_div == null) {
             main_div = doc.body.appendChild(doc.createElement("div"));
             main_div.setAttribute("id", div_id);
             main_div.setAttribute("style",
-                "position: fixed; z-index:9999; top: 50px; left: 50px;"
-                + "width: 16em;padding:6px;font-weight:bold;font-size:20px;"
+                "position:fixed;z-index:9999;top: 50px;left:50px;color:#333;"
+                + "width:16em;padding:6px;font-weight:bold;font-size:20px;"
                 + "border: 3px outset orange; background-color: cornsilk;");
         }
         main_div.setAttribute("onclick", "document.body.removeChild(this)");
@@ -29,13 +41,17 @@ var mitnk_send_to_kindle = {
                 target_div.innerHTML = 'Network Error.';
             }
             else if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var result = eval('(' + xmlhttp.responseText + ')');
+                var result = JSON.parse(xmlhttp.responseText);
                 if (result.status == "ok") {
                     target_div.innerHTML = 'Sent Successfully!';
-                    setTimeout("mitnk_send_to_kindle.dismiss_main_div()", 1500);
+                    setTimeout("MitnkSendToKindle.IO.dismiss_main_div()", 1500);
                 }
                 else {
                     target_div.innerHTML = result.reason;
+                    if (result.url != "") {
+                        target_div.innerHTML += ' <a href="' + result.url +
+                            '" target="_blank">' + result.url_string + '</a>';
+                    }
                 }
             }
         }
@@ -54,4 +70,5 @@ var mitnk_send_to_kindle = {
         this.request_sending(url, main_div);
     }
 };
-mitnk_send_to_kindle.main();
+
+MitnkSendToKindle.IO.main();

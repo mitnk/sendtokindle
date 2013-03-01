@@ -1,0 +1,6 @@
+content   sendtokindle                  chrome/content/
+skin      sendtokindle    classic/1.0   chrome/skin/
+locale    xulschoolhello  en-US         locale/en-US/
+
+overlay chrome://browser/content/browser.xul chrome://sendtokindle/content/browser.xul
+style chrome://global/content/customizeToolbar.xul chrome://sendtokindle/skin/toolbar.css
