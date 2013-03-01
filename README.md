@@ -13,7 +13,7 @@ Install from [Mozilla Add-ons site](https://addons.mozilla.org/en-US/firefox/add
 Chrome
 ------
 
-Download [this file](https://raw.github.com/mitnk/sendtokindle/master/send_to_kindle.crx), and then drop it on your chrome **Extension Page**. (Yes, you has to drop to install, since Chrome do not allow click to install third-part Add-ons.)
+Download [this file](https://raw.github.com/mitnk/sendtokindle/master/send_to_kindle.crx), and then drop it on your chrome **Extension Page**. (Yes, you have to **Drop to Install**, since Chrome do not allow click to install third-part Add-ons.)
 
 
 Service provided by <http://kindle.io>.
