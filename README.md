@@ -1,8 +1,8 @@
 Send to Kindle
 ==============
 
-A Chrome/Firefox Add-on which let you Send blog articles to your Kindle.  
-Just by pushing a button in the browser.
+A Chrome/Firefox Add-on which let you send blog articles to your Kindle.  
+Just by pushing a button on the browser.
 
 
 Firefox
